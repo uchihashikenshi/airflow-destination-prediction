@@ -160,9 +160,9 @@ PREDICT_URL = '"' + TARGET_URL + '/' + VERSION_NAME + ':predict"'
 
 
 t60 = BashOperator(
-    task_id='gcloud_ml-engine_create_version',
+    task_id='aws_ec2_create_version',
     depends_on_past=True,
-    bash_command='gcloud ml-engine versions \
+    bash_command='aws ec2 versions \
         create {{ params.version_name }} \
         --model {{ params.model_name }} \
         --origin {{ params.model_dir }} \
